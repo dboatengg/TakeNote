@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TakeNote</title>
+
+    <!-- CSS file -->
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!-- Icon scout cdn link -->
+    <link
+      rel="stylesheet"
+      href="https://unicons.iconscout.com/release/v4.0.0/css/line.css"
+    />
+  </head>
+  <body>
+    <!-- navbar  -->
+    <nav class="navbar">
+      <div class="navbar__wrapper">
+        <a href="index.html"><img src="assets/logo.svg" /></a>
+        <button class="instructions-btn" title="instructions">
+          <i class="uil uil-info"></i>
+        </button>
+      </div>
+    </nav>
+
+    <!-- notes section -->
+    <ul class="notes">
+      <li class="note note-add">
+        <div class="note-box">
+          <img src="assets/add-note.svg" />
+          <p>Click to add note</p>
+        </div>
+      </li>
+      <li class="note note-single">
+        <div class="note-box note-text">
+          <h1 class="note-text__title">My Note</h1>
+          <p>
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry's standard dummy text
+            ever since the 1500s, when an unknown printer took a galley of type
+            and scrambled it to make a type specimen.
+          </p>
+          <div class="note-text__icon">
+            <i class="uil uil-eye" title="view note"></i>
+            <i class="uil uil-edit" title="edit note"></i>
+            <i class="uil uil-trash" title="delete note"></i>
+          </div>
+        </div>
+      </li>
+      <li class="note note-single">
+        <div class="note-box note-text">
+          <h1 class="note-text__title">My Note</h1>
+          <p>
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry's standard dummy text
+            ever since the 1500s, when an unknown printer took a galley of type
+            and scrambled it to make a type specimen.
+          </p>
+          <div class="note-text__icon">
+            <i class="uil uil-eye" title="view note"></i>
+            <i class="uil uil-edit" title="edit note"></i>
+            <i class="uil uil-trash" title="delete note"></i>
+          </div>
+        </div>
+      </li>
+      <li class="note note-single">
+        <div class="note-box note-text">
+          <h1 class="note-text__title">My Note</h1>
+          <p>
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry's standard dummy text
+            ever since the 1500s, when an unknown printer took a galley of type
+            and scrambled it to make a type specimen.
+          </p>
+          <div class="note-text__icon">
+            <i class="uil uil-eye" title="view note"></i>
+            <i class="uil uil-edit" title="edit note"></i>
+            <i class="uil uil-trash" title="delete note"></i>
+          </div>
+        </div>
+      </li>
+      <li class="note note-single">
+        <div class="note-box note-text">
+          <h1 class="note-text__title">My Note</h1>
+          <p>
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry's standard dummy text
+            ever since the 1500s, when an unknown printer took a galley of type
+            and scrambled it to make a type specimen.
+          </p>
+          <div class="note-text__icon">
+            <i class="uil uil-eye" title="view note"></i>
+            <i class="uil uil-edit" title="edit note"></i>
+            <i class="uil uil-trash" title="delete note"></i>
+          </div>
+        </div>
+      </li>
+      <li class="note note-single">
+        <div class="note-box note-text">
+          <h1 class="note-text__title">My Note</h1>
+          <p>
+            Lorem Ipsum is simply dummy text of the printing and typesetting
+            industry. Lorem Ipsum has been the industry's standard dummy text
+            ever since the 1500s, when an unknown printer took a galley of type
+            and scrambled it to make a type specimen.
+          </p>
+          <div class="note-text__icon">
+            <i class="uil uil-eye" title="view note"></i>
+            <i class="uil uil-edit" title="edit note"></i>
+            <i class="uil uil-trash" title="delete note"></i>
+          </div>
+        </div>
+      </li>
+    </ul>
+
+    <!-- instructions box  -->
+    <div class="instructions-box">
+      <div class="instructions-box__wrapper">
+        <i id="instructions-close" class="uil uil-times"></i>
+        <h2 class="instructions-box__title">Instructions</h2>
+        <hr style="opacity: 0.4; margin-bottom: 10px" />
+        <p>
+          Lorem Ipsum is simply dummy text of the printing and typesetting
+          industry. Lorem Ipsum has been the industry's standard dummy text ever
+          since the 1500s
+        </p>
+      </div>
+    </div>
+
+    <!-- form  -->
+    <div class="form">
+      <form class="form__wrapper">
+        <div class="form__title">
+          <h2>Add a new note</h2>
+          <i id="form-close" class="uil uil-times"></i>
+        </div>
+
+        <!-- note title -->
+        <div class="">
+          <label>Note title</label><br />
+          <input id="note-title" type="text" />
+        </div>
+
+        <!-- note description -->
+        <div class="">
+          <label>Note description</label><br />
+          <textarea id="note-description"></textarea>
+        </div>
+
+        <!-- note description -->
+        <div class="">
+          <label for="drop-down">Select color</label><br />
+          <select name="drop-down" id="drop-down">
+            <option value="red">Red</option>
+            <option value="yellow">Yellow</option>
+            <option value="green">Green</option>
+          </select>
+        </div>
+
+        <button class="form__btn">Add Note</button>
+      </form>
+    </div>
+
+    <!-- footer -->
+    <!-- <footer class="footer">
+      <small class="footer__wrapper">
+        <i class="uil uil-copyright"></i>
+        <p>TakeNote 2022</p>
+      </small>
+    </footer> -->
+    <script src="script.js"></script>
+  </body>
+</html>

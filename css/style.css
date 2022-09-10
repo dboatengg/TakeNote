@@ -1,0 +1,237 @@
+/* Roboto Condensed */
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap");
+
+/* colors  */
+:root {
+  --background: #1e1e1e;
+  --footer-nav: #6a6a6a;
+  --global-color: #d9d9d9;
+  --text-color: #101010;
+  --white: #fff;
+}
+
+html {
+  font-size: 100%;
+}
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: var(--background);
+  font-family: "Roboto Condensed", sans-serif;
+}
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* nav  */
+.navbar {
+  z-index: 2;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background-color: var(--footer-nav);
+}
+.navbar__wrapper {
+  max-width: 1280px;
+  margin: 0 auto;
+  width: 90%;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* wraper */
+.notes {
+  z-index: 1;
+  position: relative;
+  top: 70px;
+  width: 90%;
+  max-width: 1400px;
+  margin-bottom: 200px;
+  /* height: 100vh; */
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  row-gap: 20px;
+  column-gap: 20px;
+}
+
+.note {
+  background-color: var(--global-color);
+  width: 370px;
+  /* min-width: 250px; */
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 5px;
+}
+.note-single {
+  box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.3);
+}
+.note-box {
+  text-align: center;
+}
+.note-add {
+  cursor: pointer;
+}
+.note-add:hover {
+  opacity: 0.92;
+}
+
+.note-text {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  gap: 5px;
+}
+.note-text__title {
+  font-size: 25px;
+}
+.note-text__icon {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: flex-end;
+}
+.note-text__icon i {
+  cursor: pointer;
+  font-size: 18px;
+}
+
+/* instructions box  */
+.instructions-box {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  z-index: 99999;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease-in-out;
+  display: none;
+}
+.instructions-box.show {
+  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.instructions-box__wrapper {
+  background: white;
+  max-width: 350px;
+  margin: auto;
+  padding: 20px;
+  border-radius: 5px;
+}
+#instructions-close,
+#form-close {
+  font-size: 26px;
+  cursor: pointer;
+}
+.instructions-btn {
+  outline: 0;
+  cursor: pointer;
+  font-size: 20px;
+  padding: 2px 5px;
+  border: none;
+  background-color: #e62314;
+  color: var(--white);
+  border-radius: 5px;
+}
+
+/* form  */
+.form {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: 999;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+}
+.form.show {
+  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.form__wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* align-items: center; */
+  background-color: var(--global-color);
+  width: 400px;
+  padding: 15px 20px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  /* height: 50vh; */
+}
+.form__wrapper input,
+.form__wrapper select,
+.form__wrapper textarea {
+  width: 100%;
+  border-radius: 3px;
+  outline: none;
+}
+.form__wrapper input,
+.form__wrapper select {
+  height: 30px;
+}
+.form__wrapper input,
+.form__wrapper textarea {
+  padding: 10px;
+}
+.form__wrapper textarea {
+  height: 100px;
+  resize: none;
+}
+.form__title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0, 6);
+}
+.form__btn {
+  padding: 12px 0;
+}
+/* footer  */
+/* .footer {
+    background-color: var(--footer-nav);
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  z-index: 2;
+  margin-top: 200px;
+  color: var(--white);
+  font-weight: 500;
+  font-size: 16px;
+}
+.footer__wrapper {
+  display: flex;
+  height: 40px;
+  align-items: center;
+  justify-content: center;
+} */
+@media screen and (max-width: 768px) {
+  .notes {
+    justify-content: center;
+  }
+}
