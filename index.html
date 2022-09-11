@@ -84,7 +84,9 @@
       </li>
       <li class="note note-single">
         <div class="note-box note-text">
-          <h1 class="note-text__title">My Note</h1>
+          <h1 class="note-text__title">
+            My visit to the beach in Africa and I am here
+          </h1>
           <p>
             Lorem Ipsum is simply dummy text of the printing and typesetting
             industry. Lorem Ipsum has been the industry's standard dummy text
@@ -100,7 +102,7 @@
       </li>
       <li class="note note-single">
         <div class="note-box note-text">
-          <h1 class="note-text__title">My Note</h1>
+          <h1 class="note-text__title">This is my note right here</h1>
           <p>
             Lorem Ipsum is simply dummy text of the printing and typesetting
             industry. Lorem Ipsum has been the industry's standard dummy text
@@ -117,7 +119,7 @@
     </ul>
 
     <!-- instructions box  -->
-    <div class="instructions-box">
+    <section class="instructions-box">
       <div class="instructions-box__wrapper">
         <i id="instructions-close" class="uil uil-times"></i>
         <h2 class="instructions-box__title">Instructions</h2>
@@ -128,32 +130,45 @@
           since the 1500s
         </p>
       </div>
-    </div>
+    </section>
 
     <!-- form  -->
-    <div class="form">
+    <section class="form">
       <form class="form__wrapper">
         <div class="form__title">
           <h2>Add a new note</h2>
           <i id="form-close" class="uil uil-times"></i>
         </div>
+        <hr />
 
         <!-- note title -->
         <div class="">
           <label>Note title</label><br />
-          <input id="note-title" type="text" />
+          <div id="title-count" class="title-count"></div>
+          <input
+            id="note-title"
+            class="note-title"
+            type="text"
+            placeholder="Add note title here"
+          />
         </div>
-
         <!-- note description -->
         <div class="">
           <label>Note description</label><br />
-          <textarea id="note-description"></textarea>
+          <div id="character-count" class="character-count"></div>
+          <textarea
+            id="note-description"
+            placeholder="Add note description here"
+          ></textarea>
         </div>
 
-        <!-- note description -->
-        <div class="">
-          <label for="drop-down">Select color</label><br />
-          <select name="drop-down" id="drop-down">
+        <!-- note dropdown -->
+        <div class="dropdown">
+          <label for="dropdown">Select color</label><br />
+          <select name="dropdown" id="dropdown-wrapper">
+            <option value="" disabled selected>
+              Click to select preferred color
+            </option>
             <option value="red">Red</option>
             <option value="yellow">Yellow</option>
             <option value="green">Green</option>
@@ -162,7 +177,7 @@
 
         <button class="form__btn">Add Note</button>
       </form>
-    </div>
+    </section>
 
     <!-- footer -->
     <!-- <footer class="footer">
