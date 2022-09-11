@@ -300,3 +300,22 @@ select {
     justify-content: center;
   }
 }
+@media screen and (max-width: 540px) {
+  .form__wrapper {
+    width: 90%;
+  }
+  .note-text__icon {
+    margin-bottom: 10px;
+  }
+}
+@media screen and (max-width: 375px) {
+  .note-text__title {
+    font-size: 20px;
+  }
+  .note-text__description {
+    font-size: 16px;
+  }
+  .note-text__icon i {
+    font-size: 15px;
+  }
+}

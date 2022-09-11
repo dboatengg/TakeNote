@@ -116,6 +116,8 @@ formBtn.onclick = () => {
     noteText.innerHTML = textarea.value;
 
     // add classes to new elements
+    noteBoxTitle.className = "note-text__title";
+    noteText.className = "note-text__description";
     note.className = "note note-single";
     noteBox.className = "note-box note-text";
     noteTextIcons.className = "note-text__icon";
