@@ -13,82 +13,93 @@ const instructionsBtn = document.querySelector(".instructions-btn"),
   noteTitle = document.querySelector("#note-title");
 
 // instruction box
-instructionsBtn.addEventListener("click", () => {
-  instructionsBox.classList.add("show");
-});
-instructionsClose.addEventListener("click", () => {
-  instructionsBox.classList.remove("show");
-});
+function showInstructionBox() {
+  instructionsBtn.addEventListener("click", () => {
+    instructionsBox.classList.add("show");
+  });
+  instructionsClose.addEventListener("click", () => {
+    instructionsBox.classList.remove("show");
+  });
+}
+showInstructionBox();
 
 // form
-noteAdd.addEventListener("click", () => {
-  form.classList.add("show");
-});
-formClose.addEventListener("click", () => {
-  form.classList.remove("show");
-});
-formBtn.addEventListener("click", (event) => {
-  event.preventDefault();
-});
+function showForm() {
+  noteAdd.addEventListener("click", () => {
+    form.classList.add("show");
+  });
+  formClose.addEventListener("click", () => {
+    form.classList.remove("show");
+  });
+  formBtn.addEventListener("click", (event) => {
+    event.preventDefault();
+  });
+}
+showForm();
 
 // count characters in note description
-textarea.addEventListener("keyup", (e) => {
-  if (e.target.value.length > 240) {
-    characterCount.innerHTML = "Description should not exceed 240 characters";
-    characterCount.classList.add("show");
-  } else {
-    characterCount.innerHTML = "";
-    characterCount.classList.remove("show");
-  }
-});
+function checkDescriptionCharacters() {
+  textarea.addEventListener("keyup", (e) => {
+    if (e.target.value.length > 240) {
+      characterCount.innerHTML = "Description should not exceed 240 characters";
+      characterCount.classList.add("show");
+    } else if (e.target.value.length < 1) {
+      characterCount.innerHTML = "Kindly enter a note description";
+      characterCount.classList.add("show");
+    } else {
+      characterCount.innerHTML = "";
+      characterCount.classList.remove("show");
+    }
+  });
+}
 
 // prevent multiple spaces in note description area
-processKeyUp = function (event) {
-  if (window.event) {
-    event = window.event;
-  }
-  if (event.keyCode == 32) {
-    var val = textarea;
-    val.value = val.value.replace(/ +(?= )/g, "");
-  }
-};
-textarea.onkeyup = processKeyUp;
+function avoidMultipleSpaces() {
+  processKeyUp = function (event) {
+    if (window.event) {
+      event = window.event;
+    }
+    if (event.keyCode == 32) {
+      var val = textarea;
+      val.value = val.value.replace(/ +(?= )/g, "");
+    }
+  };
+  textarea.onkeyup = processKeyUp;
+}
+avoidMultipleSpaces();
 
 //count characters in note title
-noteTitle.onkeyup = (e) => {
-  if (e.target.value.length > 35) {
-    titleCount.innerHTML = "Title should note exceed 35 characters";
-    titleCount.classList.add("show");
-  } else {
-    titleCount.innerHTML = "";
-    titleCount.classList.remove("show");
-  }
-};
+function checkTitleCharacters() {
+  noteTitle.onkeyup = (e) => {
+    if (e.target.value.length > 35) {
+      titleCount.innerHTML = "Title should not exceed 35 characters";
+      titleCount.classList.add("show");
+    } else if (e.target.value.length < 1) {
+      titleCount.innerHTML = "Kindly enter a note title";
+      titleCount.classList.add("show");
+    } else {
+      titleCount.innerHTML = "";
+      titleCount.classList.remove("show");
+    }
+  };
+}
 
 // Add note
 formBtn.onclick = () => {
   if (noteTitle.value.length < 1 && textarea.value.length < 1) {
-    titleCount.innerHTML = "Kindly enter a note title";
-    titleCount.classList.add("show");
-    characterCount.innerHTML = "Kindly enter a note description";
-    characterCount.classList.add("show");
+    checkTitleCharacters();
+    checkDescriptionCharacters();
   } else if (noteTitle.value.length < 1) {
-    titleCount.innerHTML = "Kindly enter a note title";
-    titleCount.classList.add("show");
+    checkTitleCharacters();
   } else if (textarea.value.length < 1) {
-    characterCount.innerHTML = "Kindly enter a note description";
-    characterCount.classList.add("show");
+    checkDescriptionCharacters();
   } else if (noteTitle.value.length > 35 && textarea.value.length > 240) {
-    titleCount.innerHTML = "Title should note exceed 35 characters";
-    titleCount.classList.add("show");
-    characterCount.innerHTML = "Description should not exceed 240 characters";
-    characterCount.classList.add("show");
+    checkTitleCharacters();
+    checkDescriptionCharacters();
   } else if (noteTitle.value.length > 35) {
-    titleCount.innerHTML = "Title should note exceed 35 characters";
-    titleCount.classList.add("show");
+    checkTitleCharacters();
   } else if (textarea.value.length > 240) {
-    characterCount.innerHTML = "Description should not exceed 240 characters";
-    characterCount.classList.add("show");
+    checkDescriptionCharacters();
   } else {
     // create new elements
     let note = document.createElement("li"),
@@ -103,11 +114,6 @@ formBtn.onclick = () => {
     //fill in title and description input areas
     noteBoxTitle.innerHTML = noteTitle.value;
     noteText.innerHTML = textarea.value;
-
-    // localStorage.setItem("title", noteBoxTitle);
-    // noteBoxTitle = localStorage.getItem("title");
-    // localStorage.setItem("title", noteBoxTitle);
-    // noteBoxTitle = localStorage.getItem("title");
 
     // add classes to new elements
     note.className = "note note-single";
@@ -130,24 +136,24 @@ formBtn.onclick = () => {
     note.appendChild(noteTextIcons);
 
     //background
-    if (dropdown) {
-      if (dropdown.options[dropdown.selectedIndex].text == "Red") {
-        note.style.backgroundColor = "#ffb3a7";
+    function addBackgroundColor() {
+      if (dropdown) {
+        if (dropdown.options[dropdown.selectedIndex].text == "Red") {
+          note.style.backgroundColor = "#ffb3a7";
+        }
+        if (dropdown.options[dropdown.selectedIndex].text == "Yellow") {
+          note.style.backgroundColor = "#ece3a1";
+        }
+        if (dropdown.options[dropdown.selectedIndex].text == "Green") {
+          note.style.backgroundColor = "#BCF5A6";
+        }
+      } else {
+        note.style.backgroundColor = "#d9d9d9";
       }
-      if (dropdown.options[dropdown.selectedIndex].text == "Yellow") {
-        note.style.backgroundColor = "#ece3a1";
-      }
-      if (dropdown.options[dropdown.selectedIndex].text == "Green") {
-        note.style.backgroundColor = "#BCF5A6";
-      }
-      // note.style.backgroundColor =
-      //   dropdown.options[dropdown.selectedIndex].text;
-    } else {
-      note.style.backgroundColor = "#d9d9d9";
     }
+    addBackgroundColor();
 
-    const noteas = JSON.parse(localStorage.getItem("noteas") || "[]");
-    localStorage.setItem("noteas", JSON.stringify(noteas));
+    //Save note to localStorage
 
     //add to page
     notes.appendChild(note);
