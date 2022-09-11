@@ -14,7 +14,7 @@
 }
 
 html {
-  font-size: 100%;
+  font-size: 67.5%;
 }
 *,
 *::before,
@@ -26,6 +26,7 @@ html {
 body {
   background-color: var(--background);
   font-family: "Roboto Condensed", sans-serif;
+  font-size: 1.6rem;
 }
 ul {
   list-style-type: none;
@@ -75,8 +76,9 @@ select {
 
 .note {
   background-color: var(--global-color);
-  width: 370px;
-  height: 200px;
+  width: 37rem;
+  max-width: 370px;
+  height: 20rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -85,6 +87,7 @@ select {
 }
 .note-single {
   box-shadow: 2px 2px 12px rgba(0, 0, 0, 0.3);
+  padding: 20px;
 }
 .note-box {
   text-align: center;
@@ -97,14 +100,14 @@ select {
 }
 
 .note-text {
-  padding: 15px 20px;
+  /* padding: 15px 20px; */
   display: flex;
   flex-direction: column;
   text-align: left;
   gap: 5px;
 }
 .note-text__title {
-  font-size: 25px;
+  font-size: 2.5rem;
 }
 .note-text__icon {
   display: flex;
@@ -115,8 +118,11 @@ select {
 }
 .note-text__icon i {
   cursor: pointer;
-  font-size: 18px;
+  font-size: 1.8rem;
 }
+/* .note-text__description {
+  font-family: "Inter", sans-serif;
+} */
 
 /* instructions box  */
 .instructions-box {
@@ -144,13 +150,13 @@ select {
 }
 #instructions-close,
 #form-close {
-  font-size: 26px;
+  font-size: 2.6rem;
   cursor: pointer;
 }
 .instructions-btn {
   outline: 0;
   cursor: pointer;
-  font-size: 20px;
+  font-size: 2rem;
   padding: 2px 5px;
   border: none;
   background-color: #e62314;
@@ -160,7 +166,7 @@ select {
 
 /* form  */
 .form {
-  position: absolute;
+  position: fixed;
   opacity: 0;
   background-color: rgba(0, 0, 0, 0.5);
   display: flex;
@@ -201,7 +207,7 @@ select {
   border-radius: 3px;
   outline: none;
   font-family: "Inter", sans-serif;
-  font-size: 16px;
+  font-size: 1.6rem;
   border: 1px solid rgba(0, 0, 0, 0.4);
 }
 .form__wrapper input,
@@ -272,7 +278,7 @@ select {
   color: var(--white);
   font-family: "Inter", sans-serif;
   border-radius: 3px;
-  font-size: 14px;
+  font-size: 1.4rem;
   font-weight: 600;
   cursor: pointer;
 }
@@ -295,27 +301,35 @@ select {
   align-items: center;
   justify-content: center;
 } */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 850px) {
   .notes {
     justify-content: center;
+  }
+  .note-text__icon {
+    gap: 15px;
+    width: 85%;
   }
 }
 @media screen and (max-width: 540px) {
   .form__wrapper {
     width: 90%;
   }
-  .note-text__icon {
-    margin-bottom: 10px;
-  }
 }
 @media screen and (max-width: 375px) {
   .note-text__title {
-    font-size: 20px;
+    font-size: 2rem;
   }
   .note-text__description {
-    font-size: 16px;
+    font-size: 1.6rem;
   }
-  .note-text__icon i {
-    font-size: 15px;
+}
+@media screen and (max-width: 330px) {
+  .note {
+    height: 25rem;
+  }
+}
+@media screen and (max-width: 250px) {
+  .note {
+    height: 30rem;
   }
 }
