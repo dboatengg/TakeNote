@@ -5,7 +5,7 @@ const instructionsBtn = document.querySelector(".instructions-btn"),
   form = document.querySelector(".form"),
   formClose = document.querySelector("#form-close"),
   formBtn = document.querySelector(".form__btn"),
-  textarea = document.querySelector("textarea"),
+  textarea = document.querySelector("#note-description"),
   notes = document.querySelector(".notes"),
   characterCount = document.querySelector(".character-count"),
   titleCount = document.querySelector(".title-count"),
@@ -40,10 +40,10 @@ showForm();
 // count characters in note description
 function checkDescriptionCharacters() {
   textarea.addEventListener("keyup", (e) => {
-    if (e.target.value.length > 240) {
+    if (textarea.value.length > 240) {
       characterCount.innerHTML = "Description should not exceed 240 characters";
       characterCount.classList.add("show");
-    } else if (e.target.value.length < 1) {
+    } else if (textarea.value.length < 1) {
       characterCount.innerHTML = "Kindly enter a note description";
       characterCount.classList.add("show");
     } else {
@@ -71,10 +71,10 @@ avoidMultipleSpaces();
 //count characters in note title
 function checkTitleCharacters() {
   noteTitle.onkeyup = (e) => {
-    if (e.target.value.length > 35) {
-      titleCount.innerHTML = "Title should not exceed 35 characters";
+    if (noteTitle.value.length > 32) {
+      titleCount.innerHTML = "Title should not exceed 32 characters";
       titleCount.classList.add("show");
-    } else if (e.target.value.length < 1) {
+    } else if (noteTitle.value.length < 1) {
       titleCount.innerHTML = "Kindly enter a note title";
       titleCount.classList.add("show");
     } else {
