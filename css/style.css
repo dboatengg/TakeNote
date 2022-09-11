@@ -1,5 +1,8 @@
-/* Roboto Condensed */
+/* Roboto Condensed Font Family*/
 @import url("https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap");
+
+/* Inter Font Family  */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
 
 /* colors  */
 :root {
@@ -29,7 +32,11 @@ ul {
   margin: 0;
   padding: 0;
 }
-
+select {
+  -webkit-appearance: none;
+  appearance: none;
+  cursor: pointer;
+}
 /* nav  */
 .navbar {
   z-index: 2;
@@ -173,15 +180,17 @@ ul {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  /* align-items: center; */
   background-color: var(--global-color);
-  width: 400px;
+  width: 450px;
   padding: 15px 20px;
   border-radius: 5px;
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  /* height: 50vh; */
+  gap: 15px;
+  font-family: "Inter", sans-serif;
+}
+.form__wrapper label {
+  font-weight: 600;
 }
 .form__wrapper input,
 .form__wrapper select,
@@ -189,27 +198,81 @@ ul {
   width: 100%;
   border-radius: 3px;
   outline: none;
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  border: 1px solid rgba(0, 0, 0, 0.4);
 }
 .form__wrapper input,
 .form__wrapper select {
-  height: 30px;
+  height: 40px;
+}
+.form__wrapper select {
+  padding: 0 10px 0 10px;
 }
 .form__wrapper input,
 .form__wrapper textarea {
   padding: 10px;
 }
 .form__wrapper textarea {
-  height: 100px;
+  height: 120px;
   resize: none;
+  line-height: 1.4;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+.form__wrapper textarea::-webkit-scrollbar {
+  width: 0px;
+}
+.title-count.show,
+.character-count.show {
+  position: static;
+  opacity: 1;
+  transition: all 0.3s ease-in-out;
+}
+.character-count,
+.title-count {
+  position: absolute;
+  opacity: 0;
+  margin-bottom: 5px;
+  background: orange;
+  padding: 5px;
+  font-size: 13px;
+  border-radius: 5px;
+  font-weight: 600;
+  text-align: center;
 }
 .form__title {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: 1px solid rgba(0, 0, 0, 0, 6);
+}
+.form__title h2 {
+  font-weight: 600;
 }
 .form__btn {
   padding: 12px 0;
+}
+.dropdown {
+  position: relative;
+}
+
+/* .dropdown::after {
+  content: "▼";
+  font-size: 13px;
+  top: 30px;
+  right: 15px;
+  color: rgba(0, 0, 0, 0.6);
+  position: absolute;
+  z-index: 0;
+} */
+.form__wrapper button {
+  background-color: #101010;
+  color: var(--white);
+  font-family: "Inter", sans-serif;
+  border-radius: 3px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
 }
 /* footer  */
 /* .footer {
