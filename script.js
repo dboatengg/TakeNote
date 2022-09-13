@@ -84,8 +84,75 @@ function checkTitleCharacters() {
   };
 }
 
-// Add note
+// create note, save to localStorage, add background color when needed
+function showNote() {
+  // create new elements
+  let note = document.createElement("li"),
+    noteBox = document.createElement("div"),
+    noteBoxTitle = document.createElement("h2"),
+    noteText = document.createElement("p"),
+    noteTextIcons = document.createElement("div"),
+    noteView = document.createElement("i"),
+    noteEdit = document.createElement("i"),
+    noteDelete = document.createElement("i");
+
+  // add classes to new elements
+  (noteBoxTitle.className = "note-text__title"),
+    (noteText.className = "note-text__description"),
+    (note.className = "note note-single"),
+    (noteBox.className = "note-box note-text"),
+    (noteTextIcons.className = "note-text__icon"),
+    (noteView.className = "uil uil-eye"),
+    (noteView.title = "view note"),
+    (noteEdit.className = "uil uil-edit"),
+    (noteEdit.title = "edit note"),
+    (noteDelete.className = "uil uil-trash"),
+    (noteDelete.title = "delete note");
+
+  // define structure
+  noteTextIcons.appendChild(noteView),
+    noteTextIcons.appendChild(noteEdit),
+    noteTextIcons.appendChild(noteDelete),
+    noteBox.appendChild(noteBoxTitle),
+    noteBox.appendChild(noteText),
+    note.appendChild(noteBox),
+    note.appendChild(noteTextIcons);
+
+  //fill in title and description input areas
+  (noteBoxTitle.innerHTML = noteTitle.value),
+    (noteText.innerHTML = textarea.value);
+
+  //Add background color to note
+  function addBackgroundColor() {
+    if (dropdown) {
+      if (dropdown.options[dropdown.selectedIndex].text == "Red") {
+        note.style.backgroundColor = "#ffb3a7";
+      }
+      if (dropdown.options[dropdown.selectedIndex].text == "Yellow") {
+        note.style.backgroundColor = "#ece3a1";
+      }
+      if (dropdown.options[dropdown.selectedIndex].text == "Green") {
+        note.style.backgroundColor = "#BCF5A6";
+      }
+    } else {
+      note.style.backgroundColor = "#d9d9d9";
+    }
+  }
+  addBackgroundColor();
+
+  //add note to page
+  notes.appendChild(note);
+
+  //empty all form fields
+  (noteTitle.value = ""), (textarea.value = ""), (dropdown.value = "");
+
+  //remove form
+  form.classList.remove("show");
+}
+
+// Add note on button click
 formBtn.onclick = () => {
+  // validate form input
   if (noteTitle.value.length < 1 && textarea.value.length < 1) {
     checkTitleCharacters();
     checkDescriptionCharacters();
@@ -101,71 +168,7 @@ formBtn.onclick = () => {
   } else if (textarea.value.length > 240) {
     checkDescriptionCharacters();
   } else {
-    // create new elements
-    let note = document.createElement("li"),
-      noteBox = document.createElement("div"),
-      noteBoxTitle = document.createElement("h2"),
-      noteText = document.createElement("p"),
-      noteTextIcons = document.createElement("div"),
-      noteView = document.createElement("i"),
-      noteEdit = document.createElement("i"),
-      noteDelete = document.createElement("i");
-
-    //fill in title and description input areas
-    noteBoxTitle.innerHTML = noteTitle.value;
-    noteText.innerHTML = textarea.value;
-
-    // add classes to new elements
-    noteBoxTitle.className = "note-text__title";
-    noteText.className = "note-text__description";
-    note.className = "note note-single";
-    noteBox.className = "note-box note-text";
-    noteTextIcons.className = "note-text__icon";
-    noteView.className = "uil uil-eye";
-    noteView.title = "view note";
-    noteEdit.className = "uil uil-edit";
-    noteEdit.title = "edit note";
-    noteDelete.className = "uil uil-trash";
-    noteDelete.title = "delete note";
-
-    //structure
-    noteTextIcons.appendChild(noteView);
-    noteTextIcons.appendChild(noteEdit);
-    noteTextIcons.appendChild(noteDelete);
-    noteBox.appendChild(noteBoxTitle);
-    noteBox.appendChild(noteText);
-    note.appendChild(noteBox);
-    note.appendChild(noteTextIcons);
-
-    //background
-    function addBackgroundColor() {
-      if (dropdown) {
-        if (dropdown.options[dropdown.selectedIndex].text == "Red") {
-          note.style.backgroundColor = "#ffb3a7";
-        }
-        if (dropdown.options[dropdown.selectedIndex].text == "Yellow") {
-          note.style.backgroundColor = "#ece3a1";
-        }
-        if (dropdown.options[dropdown.selectedIndex].text == "Green") {
-          note.style.backgroundColor = "#BCF5A6";
-        }
-      } else {
-        note.style.backgroundColor = "#d9d9d9";
-      }
-    }
-    addBackgroundColor();
-
-    //Save note to localStorage
-
-    //add to page
-    notes.appendChild(note);
-
-    //empty all form fields
-    noteTitle.value = "";
-    textarea.value = "";
-    dropdown.value = "";
-
-    //remove form
-    form.classList.remove("show");
+    // create note and display it
+    showNote();
   }
 };
